@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Bella Cut | Unisex Salon Concept - Chandigarh</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Playfair Display for editorial headings & Inter for clean sans body -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        charcoal: '#1A1A1A',
+                        'charcoal-light': '#2A2A2A',
+                        'warm-white': '#F9F8F6',
+                        taupe: '#A49B93',
+                        'taupe-light': '#E8E5E1',
+                        copper: '#C49A75',
+                        'copper-dark': '#A37C58',
+                        'soft-gray': '#F0EFEB'
+                    },
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'serif'],
+                        sans: ['"Inter"', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom scrollbar and smooth aesthetic enhancements */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1A1A1A;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #A49B93;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #C49A75;
+        }
+        .editorial-image-clip {
+            clip-path: polygon(0 0, 100% 0, 100% 92%, 0 100%);
+        }
+        .hero-bg {
+            background: linear-gradient(rgba(26, 26, 26, 0.75), rgba(26, 26, 26, 0.85)), url('https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&q=80&w=1920') center/cover no-repeat;
+        }
+    </style>
+</head>
+<body class="bg-warm-white text-charcoal font-sans antialiased selection:bg-copper selection:text-white">
+
+    <!-- Concept Demo Banner -->
+    <div class="bg-charcoal text-warm-white text-xs py-2 px-4 text-center font-medium tracking-widest uppercase border-b border-white/10 relative z-50 flex items-center justify-center gap-3">
+        <span class="inline-block w-2 h-2 rounded-full bg-copper animate-pulse"></span>
+        <span>Independent Concept Demo — Not the Official Website</span>
+        <button onclick="toggleAdminMode()" id="admin-mode-btn" class="ml-4 bg-copper text-white text-[10px] px-2 py-0.5 rounded uppercase tracking-wider hover:bg-copper-dark transition-colors">
+            <i class="fa-solid fa-gear mr-1"></i> Toggle Edit Mode
+        </button>
+    </div>
+
+    <!-- Sticky Navigation Bar -->
+    <header id="navbar" class="sticky top-0 z-40 bg-warm-white/90 backdrop-blur-md border-b border-taupe-light transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="#" class="font-serif text-2xl md:text-3xl tracking-wider font-bold text-charcoal flex items-center gap-2">
+                THE BELLA CUT
+                <span class="text-xs font-sans tracking-widest uppercase bg-taupe-light text-charcoal px-2 py-0.5 rounded font-normal branch-label" contenteditable="false">Chandigarh</span>
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <nav class="hidden md:flex items-center gap-8 text-sm uppercase tracking-widest font-medium">
+                <a href="#services" class="hover:text-copper transition-colors">Services</a>
+                <a href="#portfolio" class="hover:text-copper transition-colors">Portfolio</a>
+                <a href="#inspiration" class="hover:text-copper transition-colors">Inspiration</a>
+                <a href="#about" class="hover:text-copper transition-colors">About</a>
+                <a href="#contact" class="hover:text-copper transition-colors">Contact</a>
+            </nav>
+
+            <!-- CTA / Enquiry Button -->
+            <div class="hidden md:flex items-center gap-4">
+                <a href="#enquiry" class="bg-charcoal text-warm-white hover:bg-copper transition-colors px-5 py-2.5 text-xs uppercase tracking-widest font-medium rounded-none">
+                    Book Consultation
+                </a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="md:hidden text-2xl text-charcoal focus:outline-none">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-warm-white border-b border-taupe-light px-6 py-6 space-y-4">
+            <a href="#services" class="block text-sm uppercase tracking-widest font-medium hover:text-copper mobile-link">Services</a>
+            <a href="#portfolio" class="block text-sm uppercase tracking-widest font-medium hover:text-copper mobile-link">Portfolio</a>
+            <a href="#inspiration" class="block text-sm uppercase tracking-widest font-medium hover:text-copper mobile-link">Inspiration</a>
+            <a href="#about" class="block text-sm uppercase tracking-widest font-medium hover:text-copper mobile-link">About</a>
+            <a href="#contact" class="block text-sm uppercase tracking-widest font-medium hover:text-copper mobile-link">Contact</a>
+            <a href="#enquiry" class="block text-center bg-charcoal text-warm-white py-3 text-xs uppercase tracking-widest font-medium mobile-link">
+                Book Consultation
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-[90vh] flex items-center justify-center hero-bg text-warm-white px-6 py-24">
+        <div class="absolute inset-0 bg-black/40 z-0"></div>
+        <div class="relative z-10 max-w-4xl mx-auto text-center space-y-8">
+            <span class="inline-block text-copper uppercase tracking-[0.3em] text-xs font-semibold bg-charcoal/60 px-4 py-1.5 border border-copper/30">
+                Unisex Salon • Chandigarh Concept
+            </span>
+            <h1 class="font-serif text-5xl md:text-7xl lg:text-8xl tracking-tight font-light leading-none">
+                A Cut Above <br><span class="italic font-normal">the Ordinary</span>
+            </h1>
+            <p class="max-w-xl mx-auto text-taupe-light text-lg md:text-xl font-light tracking-wide leading-relaxed">
+                Discover your next signature look through refined craftsmanship, precision styling, and bespoke care.
+            </p>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
+                <a href="#services" class="w-full sm:w-auto bg-copper hover:bg-copper-dark text-white px-8 py-4 text-xs uppercase tracking-[0.2em] font-medium transition-all shadow-lg">
+                    Explore the Experience
+                </a>
+                <a href="#enquiry" class="w-full sm:w-auto bg-transparent hover:bg-white/10 text-white border border-white/30 px-8 py-4 text-xs uppercase tracking-[0.2em] font-medium transition-all">
+                    Enquire / Consult
+                </a>
+            </div>
+        </div>
+        <!-- Decorative editorial accent -->
+        <div class="absolute bottom-6 left-6 hidden lg:flex items-center gap-3 text-xs uppercase tracking-widest text-taupe">
+            <span class="w-12 h-[1px] bg-taupe"></span>
+            <span>Editorial Concept 2026</span>
+        </div>
+    </section>
+
+    <!-- Intro Notice Bar -->
+    <section class="bg-charcoal text-warm-white py-8 px-6 border-b border-white/10">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+            <div>
+                <h3 class="font-serif text-xl text-copper mb-1">Tailored for Modern Aesthetics</h3>
+                <p class="text-taupe text-sm">Every service and branch detail below is sample content, fully subject to confirmation upon official launch.</p>
+            </div>
+            <div class="flex items-center gap-4">
+                <span class="text-xs uppercase tracking-widest bg-charcoal-light border border-taupe/30 px-4 py-2 text-taupe-light">
+                    <i class="fa-solid fa-circle-info text-copper mr-2"></i> Editable Sample Demo
+                </span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-28 px-6 max-w-7xl mx-auto">
+        <div class="text-center max-w-2xl mx-auto mb-20 space-y-4">
+            <span class="text-copper uppercase tracking-[0.25em] text-xs font-semibold">Curated Offerings</span>
+            <h2 class="font-serif text-4xl md:text-5xl font-light">Services & Treatments</h2>
+            <p class="text-taupe text-sm md:text-base">Explore our sample categories. Click "Toggle Edit Mode" above to modify descriptions live.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Service Card 1 -->
+            <div class="bg-white border border-taupe-light p-8 shadow-sm hover:shadow-md transition-all flex flex-col justify-between group">
+                <div>
+                    <div class="flex justify-between items-start mb-6">
+                        <span class="text-3xl text-copper font-serif font-light">01</span>
+                        <span class="text-[10px] uppercase tracking-widest bg-soft-gray px-2.5 py-1 text-charcoal font-medium">Subject to confirmation</span>
+                    </div>
+                    <h3 class="font-serif text-2xl mb-3 group-text-hover text-charcoal">Haircuts & Styling</h3>
+                    <p class="text-taupe text-sm leading-relaxed mb-6 service-desc" contenteditable="false">Precision cuts tailored to your facial structure, lifestyle, and individual hair texture, delivered by senior stylists.</p>
+                </div>
+                <div class="pt-4 border-t border-taupe-light/50 flex items-center justify-between text-xs uppercase tracking-widest">
+                    <span class="font-medium text-charcoal">Consultation required</span>
+                    <a href="#enquiry" class="text-copper hover:underline font-semibold flex items-center gap-1">Enquire <i class="fa-solid fa-arrow-right text-[10px]"></i></a>
+                </div>
+            </div>
+
+            <!-- Service Card 2 -->
+            <div class="bg-white border border-taupe-light p-8 shadow-sm hover:shadow-md transition-all flex flex-col justify-between group">
+                <div>
+                    <div class="flex justify-between items-start mb-6">
+                        <span class="text-3xl text-copper font-serif font-light">02</span>
+                        <span class="text-[10px] uppercase tracking-widest bg-soft-gray px-2.5 py-1 text-charcoal font-medium">Subject to confirmation</span>
+                    </div>
+                    <h3 class="font-serif text-2xl mb-3 text-charcoal">Blow-Dry & Finish</h3>
+                    <p class="text-taupe text-sm leading-relaxed mb-6 service-desc" contenteditable="false">Luxurious wash paired with professional blow-drying for effortless volume, sleek straight finishes, or soft romantic waves.</p>
+                </div>
+                <div class="pt-4 border-t border-taupe-light/50 flex items-center justify-between text-xs uppercase tracking-widest">
+                    <span class="font-medium text-charcoal">Consultation required</span>
+                    <a href="#enquiry" class="text-copper hover:underline font-semibold flex items-center gap-1">Enquire <i class="fa-solid fa-arrow-right text-[10px]"></i></a>
+                </div>
+            </div>
+
+            <!-- Service Card 3 -->
+            <div class="bg-white border border-taupe-light p-8 shadow-sm hover:shadow-md transition-all flex flex-col justify-between group">
+                <div>
+                    <div class="flex justify-between items-start mb-6">
+                        <span class="text-3xl text-copper font-serif font-light">03</span>
+                        <span class="text-[10px] uppercase tracking-widest bg-soft-gray px-2.5 py-1 text-charcoal font-medium">Subject to confirmation</span>
+                    </div>
+                    <h3 class="font-serif text-2xl mb-3 text-charcoal">Advanced Hair Colouring</h3>
+                    <p class="text-taupe text-sm leading-relaxed mb-6 service-desc" contenteditable="false">From dimensional balayage and flawless root touch-ups to bespoke fashion tones, utilizing premium ammonia-free formulas.</p>
+                </div>
+                <div class="pt-4 border-t border-taupe-light/50 flex items-center justify-between text-xs uppercase tracking-widest">
+                    <span class="font-medium text-charcoal">Consultation required</span>
+                    <a href="#enquiry" class="text-copper hover:underline font-semibold flex items-center gap-1">Enquire <i class="fa-solid fa-arrow-right text-[10px]"></i></a>
+                </div>
+            </div>
+
+            <!-- Service Card 4 -->
+            <div class="bg-white border border-taupe-light p-8 shadow-sm hover:shadow-md transition-all flex flex-col justify-between group">
+                <div>
+                    <div class="flex justify-between items-start mb-6">
+                        <span class="text-3xl text-copper font-serif font-light">04</span>
+                        <span class="text-[10px] uppercase tracking-widest bg-soft-gray px-2.5 py-1 text-charcoal font-medium">Subject to confirmation</span>
+                    </div>
+                    <h3 class="font-serif text-2xl mb-3 text-charcoal">Restorative Treatments</h3>
+                    <p class="text-taupe text-sm leading-relaxed mb-6 service-desc" contenteditable="false">Deep hydration, bond-building rituals, and scalp therapies designed to restore vitality, strength, and luminous shine.</p>
+                </div>
+                <div class="pt-4 border-t border-taupe-light/50 flex items-center justify-between text-xs uppercase tracking-widest">
+                    <span class="font-medium text-charcoal">Consultation required</span>
+                    <a href="#enquiry" class="text-copper hover:underline font-semibold flex items-center gap-1">Enquire <i class="fa-solid fa-arrow-right text-[10px]"></i></a>
+                </div>
+            </div>
+
+            <!-- Service Card 5 -->
+            <div class="bg-white border border-taupe-light p-8 shadow-sm hover:shadow-md transition-all flex flex-col justify-between group">
+                <div>
+                    <div class="flex justify-between items-start mb-6">
+                        <span class="text-3xl text-copper font-serif font-light">05</span>
+                        <span class="text-[10px] uppercase tracking-widest bg-soft-gray px-2.5 py-1 text-charcoal font-medium">Subject to confirmation</span>
+                    </div>
+                    <h3 class="font-serif text-2xl mb-3 text-charcoal">Grooming & Beard Care</h3>
+                    <p class="text-taupe text-sm leading-relaxed mb-6 service-desc" contenteditable="false">Refined men's styling, precise beard trimming, hot towel shapes, and expert facial grooming tailored for the modern gentleman.</p>
+                </div>
+                <div class="pt-4 border-t border-taupe-light/50 flex items-center justify-between text-xs uppercase tracking-widest">
+                    <span class="font-medium text-charcoal">Consultation required</span>
+                    <a href="#enquiry" class="text-copper hover:underline font-semibold flex items-center gap-1">Enquire <i class="fa-solid fa-arrow-right text-[10px]"></i></a>
+                </div>
+            </div>
+
+            <!-- Service Card 6 -->
+            <div class="bg-white border border-taupe-light p-8 shadow-sm hover:shadow-md transition-all flex flex-col justify-between group">
+                <div>
+                    <div class="flex justify-between items-start mb-6">
+                        <span class="text-3xl text-copper font-serif font-light">06</span>
+                        <span class="text-[10px] uppercase tracking-widest bg-soft-gray px-2.5 py-1 text-charcoal font-medium">Subject to confirmation</span>
+                    </div>
+                    <h3 class="font-serif text-2xl mb-3 text-charcoal">Bridal & Event Styling</h3>
+                    <p class="text-taupe text-sm leading-relaxed mb-6 service-desc" contenteditable="false">Exquisite updos, cascading curls, and editorial styling for weddings, galas, and special occasions with trial sessions available.</p>
+                </div>
+                <div class="pt-4 border-t border-taupe-light/50 flex items-center justify-between text-xs uppercase tracking-widest">
+                    <span class="font-medium text-charcoal">Consultation required</span>
+                    <a href="#enquiry" class="text-copper hover:underline font-semibold flex items-center gap-1">Enquire <i class="fa-solid fa-arrow-right text-[10px]"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Visual Portfolio / Before-and-After Section -->
+    <section id="portfolio" class="py-28 bg-charcoal text-warm-white px-6 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+                <div>
+                    <span class="text-copper uppercase tracking-[0.25em] text-xs font-semibold">Visual Portfolio</span>
+                    <h2 class="font-serif text-4xl md:text-5xl font-light mt-2">Transformation Gallery</h2>
+                </div>
+                <p class="text-taupe text-sm max-w-md">Sample illustrative before-and-after concepts demonstrating our commitment to structural harmony and texture refinement.</p>
+            </div>
+
+            <!-- Interactive Before/After Comparison Component -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <!-- Example 1 -->
+                <div class="space-y-4">
+                    <div class="relative h-[420px] overflow-hidden border border-white/10 group">
+                        <!-- After Image (Base) -->
+                        <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&q=80&w=900" alt="After Styling Sample" class="w-full h-full object-cover">
+                        <div class="absolute top-4 right-4 bg-charcoal/80 backdrop-blur-md text-white text-[10px] uppercase tracking-widest px-3 py-1 border border-white/20">
+                            Sample After: Layered Texturing
+                        </div>
+                        
+                        <!-- Overlay Before Simulation (Using clip-path controlled by slider or hover) -->
+                        <div id="ba-overlay-1" class="absolute inset-0 w-1/2 overflow-hidden border-r-2 border-copper transition-all duration-150">
+                            <img src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?auto=format&fit=crop&q=80&w=900" alt="Before Styling Sample" class="absolute inset-0 w-[200%] max-w-none h-full object-cover filter grayscale contrast-125">
+                            <div class="absolute top-4 left-4 bg-charcoal/80 backdrop-blur-md text-white text-[10px] uppercase tracking-widest px-3 py-1 border border-white/20">
+                                Sample Before
+                            </div>
+                        </div>
+
+                        <!-- Interactive Range Slider for Before/After -->
+                        <div class="absolute inset-x-0 bottom-4 px-6 flex items-center">
+                            <input type="range" min="0" max="100" value="50" class="w-full accent-copper cursor-pointer" oninput="updateBeforeAfter(1, this.value)">
+                        </div>
+                    </div>
+                    <div class="flex justify-between items-center text-xs tracking-wider text-taupe uppercase">
+                        <span>Drag slider to compare</span>
+                        <span>Sample Content Only</span>
+                    </div>
+                </div>
+
+                <!-- Example 2 -->
+                <div class="space-y-4">
+                    <div class="relative h-[420px] overflow-hidden border border-white/10 group">
+                        <!-- After Image -->
+                        <img src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?auto=format&fit=crop&q=80&w=900" alt="After Color Sample" class="w-full h-full object-cover">
+                        <div class="absolute top-4 right-4 bg-charcoal/80 backdrop-blur-md text-white text-[10px] uppercase tracking-widest px-3 py-1 border border-white/20">
+                            Sample After: Dimensional Tone
+                        </div>
+                        
+                        <!-- Overlay Before Simulation -->
+                        <div id="ba-overlay-2" class="absolute inset-0 w-1/2 overflow-hidden border-r-2 border-copper transition-all duration-150">
+                            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=900" alt="Before Color Sample" class="absolute inset-0 w-[200%] max-w-none h-full object-cover filter grayscale contrast-125">
+                            <div class="absolute top-4 left-4 bg-charcoal/80 backdrop-blur-md text-white text-[10px] uppercase tracking-widest px-3 py-1 border border-white/20">
+                                Sample Before
+                            </div>
+                        </div>
+
+                        <!-- Interactive Range Slider -->
+                        <div class="absolute inset-x-0 bottom-4 px-6 flex items-center">
+                            <input type="range" min="0" max="100" value="50" class="w-full accent-copper cursor-pointer" oninput="updateBeforeAfter(2, this.value)">
+                        </div>
+                    </div>
+                    <div class="flex justify-between items-center text-xs tracking-wider text-taupe uppercase">
+                        <span>Drag slider to compare</span>
+                        <span>Sample Content Only</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Style Inspiration Section -->
+    <section id="inspiration" class="py-28 px-6 max-w-7xl mx-auto">
+        <div class="text-center max-w-2xl mx-auto mb-20 space-y-4">
+            <span class="text-copper uppercase tracking-[0.25em] text-xs font-semibold">Editorial Aesthetic</span>
+            <h2 class="font-serif text-4xl md:text-5xl font-light">Style Inspiration</h2>
+            <p class="text-taupe text-sm md:text-base">A visual glimpse into modern hair artistry, clean minimalism, and sophisticated grooming.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="space-y-4 group">
+                <div class="overflow-hidden h-96 border border-taupe-light">
+                    <img src="https://images.unsplash.com/photo-1519699047748-de8e457a634e?auto=format&fit=crop&q=80&w=700" alt="Inspiration 1" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                </div>
+                <h4 class="font-serif text-xl text-charcoal">Effortless Movement</h4>
+                <p class="text-taupe text-sm">Natural waves and weightless layers designed for effortless daily styling.</p>
+            </div>
+            <div class="space-y-4 group md:mt-12">
+                <div class="overflow-hidden h-96 border border-taupe-light">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=700" alt="Inspiration 2" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                </div>
+                <h4 class="font-serif text-xl text-charcoal">Refined Gentleman</h4>
+                <p class="text-taupe text-sm">Sharp fades, structured top contours, and meticulously maintained beard grooming.</p>
+            </div>
+            <div class="space-y-4 group">
+                <div class="overflow-hidden h-96 border border-taupe-light">
+                    <img src="https://images.unsplash.com/photo-1562322140-8baeececf3df?auto=format&fit=crop&q=80&w=700" alt="Inspiration 3" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                </div>
+                <h4 class="font-serif text-xl text-charcoal">Luminous Tones</h4>
+                <p class="text-taupe text-sm">Rich copper and warm chestnut highlights engineered for brilliant depth.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-28 bg-soft-gray px-6 border-y border-taupe-light">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div class="space-y-8">
+                <span class="text-copper uppercase tracking-[0.25em] text-xs font-semibold">The Philosophy</span>
+                <h2 class="font-serif text-4xl md:text-5xl font-light leading-tight">Crafting Identity Through Precision Hair Care</h2>
+                <div class="space-y-4 text-taupe text-base leading-relaxed about-text" contenteditable="false">
+                    <p>The Bella Cut is envisioned as a contemporary sanctuary for discerning individuals seeking elevated grooming and hair styling. We believe that exceptional hair care requires more than technical execution—it demands a personalized consultation to align with your personal aesthetic.</p>
+                    <p>Operating as an independent salon concept in Chandigarh, our focus remains firmly centered on professional integrity, premium products, and an inviting, relaxed atmosphere free from pretension.</p>
+                </div>
+                <div class="grid grid-cols-2 gap-6 pt-4 border-t border-taupe-light">
+                    <div>
+                        <h4 class="font-serif text-2xl text-charcoal mb-1">Bespoke</h4>
+                        <p class="text-xs uppercase tracking-wider text-taupe">Personalised Consultations</p>
+                    </div>
+                    <div>
+                        <h4 class="font-serif text-2xl text-charcoal mb-1">Modern</h4>
+                        <p class="text-xs uppercase tracking-wider text-taupe">Contemporary Techniques</p>
+                    </div>
+                </div>
+            </div>
+            <div class="relative">
+                <div class="relative z-10 border border-taupe-light p-4 bg-warm-white shadow-xl">
+                    <img src="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&fit=crop&q=80&w=800" alt="Salon Interior Concept" class="w-full h-[450px] object-cover">
+                </div>
+                <div class="absolute -bottom-6 -right-6 w-48 h-48 bg-copper/10 border border-copper/30 z-0 hidden sm:block"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Customer Enquiry & Consultation Section -->
+    <section id="enquiry" class="py-28 px-6 max-w-4xl mx-auto">
+        <div class="text-center max-w-xl mx-auto mb-16 space-y-4">
+            <span class="text-copper uppercase tracking-[0.25em] text-xs font-semibold">Get in Touch</span>
+            <h2 class="font-serif text-4xl md:text-5xl font-light">Book a Consultation</h2>
+            <p class="text-taupe text-sm">Fill out the enquiry form below to discuss your desired service. Our team will get back to confirm availability.</p>
+        </div>
+
+        <form id="consultation-form" onsubmit="handleFormSubmit(event)" class="bg-white border border-taupe-light p-8 md:p-12 shadow-sm space-y-6">
+            <div id="form-message" class="hidden p-4 mb-4 text-sm font-medium rounded"></div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                    <label class="block text-xs uppercase tracking-widest text-charcoal font-medium mb-2">Full Name *</label>
+                    <input type="text" id="name" required class="w-full bg-soft-gray border border-taupe-light px-4 py-3 text-sm focus:outline-none focus:border-copper transition-colors" placeholder="e.g., Aarav Sharma">
+                </div>
+                <div>
+                    <label class="block text-xs uppercase tracking-widest text-charcoal font-medium mb-2">Telephone *</label>
+                    <input type="tel" id="phone" required class="w-full bg-soft-gray border border-taupe-light px-4 py-3 text-sm focus:outline-none focus:border-copper transition-colors" placeholder="e.g., +91 98765 43210">
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                    <label class="block text-xs uppercase tracking-widest text-charcoal font-medium mb-2">Select Service *</label>
+                    <select id="service" required class="w-full bg-soft-gray border border-taupe-light px-4 py-3 text-sm focus:outline-none focus:border-copper transition-colors">
+                        <option value="">Choose a service category...</option>
+                        <option value="Haircuts & Styling">Haircuts & Styling</option>
+                        <option value="Blow-Dry & Finish">Blow-Dry & Finish</option>
+                        <option value="Advanced Hair Colouring">Advanced Hair Colouring</option>
+                        <option value="Restorative Hair Treatments">Restorative Hair Treatments</option>
+                        <option value="Grooming & Beard Care">Grooming & Beard Care</option>
+                        <option value="Bridal & Event Styling">Bridal & Event Styling</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-xs uppercase tracking-widest text-charcoal font-medium mb-2">Preferred Date *</label>
+                    <input type="date" id="date" required class="w-full bg-soft-gray border border-taupe-light px-4 py-3 text-sm focus:outline-none focus:border-copper transition-colors">
+                </div>
+            </div>
+
+            <div>
+                <label class="block text-xs uppercase tracking-widest text-charcoal font-medium mb-2">Additional Notes / Requests (Optional)</label>
+                <textarea id="notes" rows="4" class="w-full bg-soft-gray border border-taupe-light p-4 text-sm focus:outline-none focus:border-copper transition-colors" placeholder="Describe your hair length, current texture, or specific styling preferences..."></textarea>
+            </div>
+
+            <button type="submit" class="w-full bg-charcoal hover:bg-copper text-warm-white py-4 text-xs uppercase tracking-[0.2em] font-medium transition-all">
+                Submit Consultation Enquiry
+            </button>
+            <p class="text-[11px] text-center text-taupe tracking-wider">Note: This is an independent concept demo enquiry form. No automated charges or instant bookings are processed here.</p>
+        </form>
+    </section>
+
+    <!-- Contact Details & Branch Address Widget -->
+    <section id="contact" class="py-28 bg-charcoal text-warm-white px-6">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div class="space-y-8">
+                <span class="text-copper uppercase tracking-[0.25em] text-xs font-semibold">Location & Contact</span>
+                <h2 class="font-serif text-4xl md:text-5xl font-light">Visit Our Salon Concept</h2>
+                
+                <div class="space-y-6 text-sm text-taupe-light">
+                    <div class="flex items-start gap-4">
+                        <div class="text-copper text-lg mt-1"><i class="fa-solid fa-location-dot"></i></div>
+                        <div>
+                            <h4 class="font-semibold text-white uppercase text-xs tracking-widest mb-1">Branch Address</h4>
+                            <p id="editable-address" contenteditable="false" class="text-taupe leading-relaxed">
+                                Sector [Editable Branch Number], Chandigarh, India<br>
+                                <span class="text-xs text-copper italic">(Address left editable until officially verified)</span>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-4">
+                        <div class="text-copper text-lg mt-1"><i class="fa-solid fa-clock"></i></div>
+                        <div>
+                            <h4 class="font-semibold text-white uppercase text-xs tracking-widest mb-1">Hours of Operation</h4>
+                            <p class="text-taupe">Monday – Sunday: 10:00 AM – 8:00 PM</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-4">
+                        <div class="text-copper text-lg mt-1"><i class="fa-solid fa-phone"></i></div>
+                        <div>
+                            <h4 class="font-semibold text-white uppercase text-xs tracking-widest mb-1">Direct Line</h4>
+                            <p id="editable-phone" contenteditable="false" class="text-taupe">+91 (0) 172 XXXXXXX</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- WhatsApp Configurable Chat Button -->
+                <div class="pt-4">
+                    <a id="whatsapp-btn" href="https://wa.me/919876543210?text=Hello%20The%20Bella%20Cut,%20I%20would%20like%20to%20enquire%20about%20salon%20services." target="_blank" class="inline-flex items-center gap-3 bg-[#25D366] hover:bg-[#20ba5a] text-white px-6 py-3.5 text-xs uppercase tracking-widest font-medium transition-all">
+                        <i class="fa-brands fa-whatsapp text-lg"></i> Chat on WhatsApp
+                    </a>
+                </div>
+            </div>
+
+            <!-- Map Placeholder -->
+            <div class="relative h-[450px] border border-white/10 bg-charcoal-light flex flex-col items-center justify-center p-8 text-center space-y-4">
+                <div class="w-16 h-16 rounded-full bg-copper/20 flex items-center justify-center text-copper text-2xl">
+                    <i class="fa-solid fa-map-location-dot"></i>
+                </div>
+                <h3 class="font-serif text-2xl text-white">Chandigarh Map Placeholder</h3>
+                <p class="text-taupe text-sm max-w-md">Interactive map coordinates will be integrated here upon exact branch location lease verification and confirmation.</p>
+                <span class="text-xs text-copper uppercase tracking-widest bg-charcoal px-4 py-2 border border-white/10">
+                    Location Pending Verification
+                </span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Media Gallery & FAQ Accordion Section -->
+    <section class="py-28 px-6 max-w-7xl mx-auto space-y-28">
+        <!-- Social Media Gallery Placeholder -->
+        <div>
+            <div class="text-center max-w-2xl mx-auto mb-16 space-y-4">
+                <span class="text-copper uppercase tracking-[0.25em] text-xs font-semibold">Social Feed</span>
+                <h2 class="font-serif text-4xl md:text-5xl font-light">Follow @TheBellaCut</h2>
+                <p class="text-taupe text-sm">Glimpses of daily craft, behind-the-scenes styling, and editorial inspirations.</p>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="relative h-64 overflow-hidden group border border-taupe-light">
+                    <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&q=80&w=500" alt="Social 1" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-charcoal/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white">
+                        <i class="fa-brands fa-instagram text-2xl"></i>
+                    </div>
+                </div>
+                <div class="relative h-64 overflow-hidden group border border-taupe-light">
+                    <img src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?auto=format&fit=crop&q=80&w=500" alt="Social 2" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-charcoal/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white">
+                        <i class="fa-brands fa-instagram text-2xl"></i>
+                    </div>
+                </div>
+                <div class="relative h-64 overflow-hidden group border border-taupe-light">
+                    <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&q=80&w=500" alt="Social 3" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-charcoal/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white">
+                        <i class="fa-brands fa-instagram text-2xl"></i>
+                    </div>
+                </div>
+                <div class="relative h-64 overflow-hidden group border border-taupe-light">
+                    <img src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?auto=format&fit=crop&q=80&w=500" alt="Social 4" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-charcoal/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white">
+                        <i class="fa-brands fa-instagram text-2xl"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- FAQ Accordion -->
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center max-w-2xl mx-auto mb-16 space-y-4">
+                <span class="text-copper uppercase tracking-[0.25em] text-xs font-semibold">Common Queries</span>
+                <h2 class="font-serif text-4xl md:text-5xl font-light">Frequently Asked Questions</h2>
+            </div>
+
+            <div class="space-y-4">
+                <div class="border border-taupe-light bg-white">
+                    <button onclick="toggleAccordion(this)" class="w-full px-6 py-5 text-left flex justify-between items-center font-serif text-xl text-charcoal">
+                        <span>Is this the official website of The Bella Cut?</span>
+                        <i class="fa-solid fa-plus text-copper text-sm transition-transform duration-300"></i>
+                    </button>
+                    <div class="hidden px-6 pb-5 text-taupe text-sm leading-relaxed border-t border-taupe-light/50 pt-4">
+                        No. This is an independent design concept demo built to showcase contemporary editorial aesthetics. All branch locations, pricing, and service schedules are placeholders subject to official confirmation.
+                    </div>
+                </div>
+
+                <div class="border border-taupe-light bg-white">
+                    <button onclick="toggleAccordion(this)" class="w-full px-6 py-5 text-left flex justify-between items-center font-serif text-xl text-charcoal">
+                        <span>How does the Admin Edit Mode work?</span>
+                        <i class="fa-solid fa-plus text-copper text-sm transition-transform duration-300"></i>
+                    </button>
+                    <div class="hidden px-6 pb-5 text-taupe text-sm leading-relaxed border-t border-taupe-light/50 pt-4">
+                        By clicking the "Toggle Edit Mode" button in the top announcement bar, you unlock all text fields across the page (branch addresses, service descriptions, and business introductions), allowing you to customize them live in your browser for presentation purposes.
+                    </div>
+                </div>
+
+                <div class="border border-taupe-light bg-white">
+                    <button onclick="toggleAccordion(this)" class="w-full px-6 py-5 text-left flex justify-between items-center font-serif text-xl text-charcoal">
+                        <span>Are walk-ins accepted at the Chandigarh branch?</span>
+                        <i class="fa-solid fa-plus text-copper text-sm transition-transform duration-300"></i>
+                    </button>
+                    <div class="hidden px-6 pb-5 text-taupe text-sm leading-relaxed border-t border-taupe-light/50 pt-4">
+                        Once the salon officially opens its doors in Chandigarh, both scheduled appointments and walk-ins will be welcomed, though advance consultation is recommended for advanced coloring and bridal styling.
+                    </div>
+                </div>
+
+                <div class="border border-taupe-light bg-white">
+                    <button onclick="toggleAccordion(this)" class="w-full px-6 py-5 text-left flex justify-between items-center font-serif text-xl text-charcoal">
+                        <span>What hair care brands are utilized?</span>
+                        <i class="fa-solid fa-plus text-copper text-sm transition-transform duration-300"></i>
+                    </button>
+                    <div class="hidden px-6 pb-5 text-taupe text-sm leading-relaxed border-t border-taupe-light/50 pt-4">
+                        The salon concept is curated to feature internationally recognized professional hair care and color lines focused on sustainability and hair integrity.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-charcoal text-warm-white py-16 px-6 border-t border-white/10">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+            <div class="space-y-4 md:col-span-2">
+                <h3 class="font-serif text-2xl tracking-wider font-bold">THE BELLA CUT</h3>
+                <p class="text-taupe text-sm max-w-sm">A contemporary unisex salon concept in Chandigarh prioritizing refined craftsmanship and editorial elegance.</p>
+                <div class="inline-block bg-charcoal-light border border-copper/30 px-3 py-1 text-[11px] text-copper uppercase tracking-widest">
+                    Independent Concept Demo
+                </div>
+            </div>
+            <div class="space-y-3 text-sm">
+                <h4 class="font-semibold uppercase tracking-widest text-xs text-white mb-4">Navigation</h4>
+                <p><a href="#services" class="text-taupe hover:text-copper transition-colors">Services</a></p>
+                <p><a href="#portfolio" class="text-taupe hover:text-copper transition-colors">Portfolio</a></p>
+                <p><a href="#inspiration" class="text-taupe hover:text-copper transition-colors">Inspiration</a></p>
+                <p><a href="#about" class="text-taupe hover:text-copper transition-colors">About</a></p>
+            </div>
+            <div class="space-y-3 text-sm">
+                <h4 class="font-semibold uppercase tracking-widest text-xs text-white mb-4">Connect</h4>
+                <p><a href="#contact" class="text-taupe hover:text-copper transition-colors">Chandigarh Branch</a></p>
+                <p><a href="#enquiry" class="text-taupe hover:text-copper transition-colors">Book Consultation</a></p>
+                <p><a href="https://wa.me/919876543210" target="_blank" class="text-taupe hover:text-copper transition-colors">WhatsApp Direct</a></p>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between text-xs text-taupe gap-4">
+            <p>&copy; 2026 The Bella Cut Concept. All rights reserved. Designed for presentation.</p>
+            <div class="flex gap-6 uppercase tracking-widest">
+                <a href="#" class="hover:text-copper transition-colors">Privacy Policy</a>
+                <a href="#" class="hover:text-copper transition-colors">Terms of Concept</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Interactivity -->
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Before & After Image Comparison Slider Logic
+        function updateBeforeAfter(id, value) {
+            const overlay = document.getElementById(`ba-overlay-${id}`);
+            overlay.style.width = `${value}%`;
+        }
+
+        // Accordion Toggle Logic
+        function toggleAccordion(button) {
+            const content = button.nextElementSibling;
+            const icon = button.querySelector('i');
+            
+            // Toggle active state
+            if (content.classList.contains('hidden')) {
+                content.classList.remove('hidden');
+                icon.classList.remove('fa-plus');
+                icon.classList.add('fa-minus');
+            } else {
+                content.classList.add('hidden');
+                icon.classList.remove('fa-minus');
+                icon.classList.add('fa-plus');
+            }
+        }
+
+        // Form Validation & Success State
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            const name = document.getElementById('name').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const service = document.getElementById('service').value;
+            const date = document.getElementById('date').value;
+            const msgBox = document.getElementById('form-message');
+
+            if (!name || !phone || !service || !date) {
+                msgBox.className = 'p-4 mb-4 text-sm font-medium rounded bg-red-100 text-red-700 border border-red-200';
+                msgBox.innerText = 'Please fill out all required fields marked with *';
+                msgBox.classList.remove('hidden');
+                return;
+            }
+
+            // Success state
+            msgBox.className = 'p-4 mb-4 text-sm font-medium rounded bg-emerald-50 text-emerald-800 border border-emerald-200';
+            msgBox.innerHTML = `<i class="fa-solid fa-circle-check mr-2 text-emerald-600"></i> Thank you, <strong>${name}</strong>! Your consultation request for <strong>${service}</strong> on <strong>${date}</strong> has been received successfully (Concept Demo Mode).`;
+            msgBox.classList.remove('hidden');
+
+            // Reset form
+            document.getElementById('consultation-form').reset();
+            
+            // Scroll to message
+            msgBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+
+        // Live Admin Edit Mode Toggle
+        let isAdminMode = false;
+        function toggleAdminMode() {
+            isAdminMode = !isAdminMode;
+            const btn = document.getElementById('admin-mode-btn');
+            
+            const editableElements = document.querySelectorAll('.service-desc, .about-text, #editable-address, #editable-phone, .branch-label');
+
+            if (isAdminMode) {
+                btn.innerHTML = '<i class="fa-solid fa-check mr-1"></i> Exit Edit Mode';
+                btn.classList.remove('bg-copper', 'hover:bg-copper-dark');
+                btn.classList.add('bg-emerald-600', 'hover:bg-emerald-700');
+                
+                editableElements.forEach(el => {
+                    el.setAttribute('contenteditable', 'true');
+                    el.classList.add('ring-2', 'ring-copper', 'p-1', 'bg-white/5', 'transition-all');
+                });
+            } else {
+                btn.innerHTML = '<i class="fa-solid fa-gear mr-1"></i> Toggle Edit Mode';
+                btn.classList.remove('bg-emerald-600', 'hover:bg-emerald-700');
+                btn.classList.add('bg-copper', 'hover:bg-copper-dark');
+                
+                editableElements.forEach(el => {
+                    el.setAttribute('contenteditable', 'false');
+                    el.classList.remove('ring-2', 'ring-copper', 'p-1', 'bg-white/5');
+                });
+            }
+        }
+    </script>
+</body>
+</html>
